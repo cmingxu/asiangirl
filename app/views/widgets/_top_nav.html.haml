@@ -1,0 +1,12 @@
+- if current_user.nil?
+  %li= link_to "Home", "/"
+  %li= link_to "Products"
+  %li= link_to "About", "/about"
+- else
+  - if current_user.admin?
+    %li= link_to "resouces", admin_resources_path 
+    %li= link_to "categories", admin_categories_path 
+
+
+
+%li= link_to "Sign Out", destroy_user_session_path, :method => :delete

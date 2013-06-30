@@ -1,0 +1,10 @@
+%table.table.table-bordered
+  %thead
+    %tr
+      %td Slug
+
+  %tbody
+    - @pages.each do |p|
+      %tr
+        %td= link_to p.slug, edit_admin_page_path(p)
+

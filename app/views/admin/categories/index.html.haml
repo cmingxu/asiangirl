@@ -1,0 +1,20 @@
+%table.table.table-bordered.table-striped
+  %thead
+    %td Name
+    %td Slug
+    %td Name(In Zh)
+    %td Resource Num
+    %td 
+
+  %tbody
+    - @categories.each do |c|
+      %tr
+        %td= c.name
+        %td= c.slug
+        %td= c.name
+        %td= c.resource_count
+        %td
+        
+
+
+= paginate @categories
