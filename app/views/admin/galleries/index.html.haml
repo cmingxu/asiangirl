@@ -16,6 +16,14 @@
       %td
         = link_to 'Edit', edit_gallery_path(gallery)
         = link_to 'Resources', admin_gallery_resources_path(gallery)
+        = select_tag "", options_from_collection_for_select(Category.all, "id", "name", gallery.category_id), { :include_blank => true , :class => "gallery", :gid => gallery.id }
 
 
 = paginate @galleries
+
+
+:coffeescript
+  $('.gallery').on 'change', ()->
+    category_id = $(this).val()
+    gid = $(this).attr('gid')
+    $.ajax url: "/admin/galleries/" + gid + "/change_category", type: "put", data: { category_id: category_id }

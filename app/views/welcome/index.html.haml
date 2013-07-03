@@ -3,15 +3,22 @@
   %h1 Hello World
   %p This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
 
-%h2.category
-  Top Galleries
-  .row-fluid
-    - 5.times do 
-      = image_tag s3_image_path("cover.jpg")
+%h2.category Top Galleries
+.row-fluid
+  - Category.top.galleries.each do |g| 
+    = link_to(image_tag(s3_image_path(g.cover_url)), gallery_path(g))
 
 %h2.category Stuff Picks
 .row-fluid
-  = image_tag s3_image_path("cover.jpg")
+  - Category.stuff_picks.galleries.each do |g| 
+    = link_to(image_tag(s3_image_path(g.cover_url)), gallery_path(g))
 
 %h2.category Guess You Like
+.row-fluid
+  - Category.recommend.galleries.each do |g| 
+    = link_to(image_tag(s3_image_path(g.cover_url)), gallery_path(g))
+
 %h2.category Images We Have - All For YOU ( 121, 000+ )
+.row-fluid
+  - Gallery.all.each do |g| 
+    = link_to(image_tag(s3_image_path(g.cover_url)), gallery_path(g))

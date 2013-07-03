@@ -80,4 +80,15 @@ class Admin::GalleriesController < Admin::BaseController
       format.json { head :no_content }
     end
   end
+
+
+  def change_category
+    @gallery = Gallery.find(params[:id])
+    @gallery.category_id = params[:category_id]
+    @gallery.save
+    
+    respond_to do |format|
+      format.js {  head :ok }
+    end
+  end
 end

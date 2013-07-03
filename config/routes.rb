@@ -7,9 +7,15 @@ Boilerplate::Application.routes.draw do
     resources :users
     resources :pages
     resources :resources
-    resources :categories
+    resources :categories do
+      resources :galleries
+    end
     resources :galleries do
       resources :resources
+
+      member do
+        put "change_category"
+      end
     end
   end
 
