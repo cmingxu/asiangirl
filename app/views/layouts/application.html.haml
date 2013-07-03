@@ -1,18 +1,43 @@
 !!! 5
 %html
   %head
-    %title Boilerplate
+    %title Hottest Asian Legs
     = stylesheet_link_tag "application", :media => "all" 
     = javascript_include_tag "application"
     = csrf_meta_tags
 
   %body
-    .container#header
-      %h1 Rails Boilerplate
-      %ul.nav.pull-right
-        = render :partial => "widgets/top_nav"
+    .navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner
+        .container-fluid
+          %button.btn.btn-navbar{ "data-toggle"=>"collapse", "data-target"=>".nav-collapse" }
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.brand Project Name
+          .nav-collapse.collapse
+            %ul.nav
+              %li.active 
+                %a Home
+              %li 
+                = link_to "Login", new_user_session_path
+              %li 
+                = link_to "Sign Up", new_user_registration_path
+              %li 
+                = link_to "Categories", admin_categories_path
+              %li 
+                = link_to "Galleries", admin_galleries_path
+              %li 
+                = link_to "Resources", admin_resources_path
 
-    .container#body
+
+
+
+
+    .container-fluid.body
       = yield
-    
-    #footer
+
+
+      %footer
+        %p &copy; Company 2013
+

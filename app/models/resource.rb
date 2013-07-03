@@ -3,4 +3,5 @@ class Resource < ActiveRecord::Base
   
   attr_accessible :category_id, :file, :name, :slug, :storage
   belongs_to :category
+  belongs_to :gallery
 end

@@ -1,3 +1,5 @@
+= link_to "New ", new_admin_category_path, :class => "btn pull-right"
+
 %table.table.table-bordered.table-striped
   %thead
     %td Name
@@ -14,7 +16,10 @@
         %td= c.name
         %td= c.resource_count
         %td
+          = link_to ""
         
 
 
 = paginate @categories
+
+

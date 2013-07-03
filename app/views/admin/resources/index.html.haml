@@ -1,2 +1,13 @@
-%h1 Admin::Resources#index
-%p Find me in app/views/admin/resources/index.html.haml
+%table.table.table-color.table-striped
+  %tr
+    %th Name
+    %th Resource
+
+  - @resources.each do |resource|
+    %tr
+      %td
+        = resource.name
+      %td= image_tag resource.storage.url
+
+
+= paginate @resources

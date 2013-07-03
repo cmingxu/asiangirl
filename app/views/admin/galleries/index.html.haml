@@ -1,0 +1,21 @@
+
+%table.table.table-color.table-striped
+  %tr
+    %th Name
+    %th Category
+    %th Slug
+    %th
+
+  - @galleries.each do |gallery|
+    %tr
+      %td
+        = image_tag gallery.cover_url
+        = gallery.name
+      %td= gallery.category_id
+      %td= gallery.slug
+      %td
+        = link_to 'Edit', edit_gallery_path(gallery)
+        = link_to 'Resources', admin_gallery_resources_path(gallery)
+
+
+= paginate @galleries

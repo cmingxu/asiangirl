@@ -1,0 +1,12 @@
+= form_for([:admin, @category], :class => "form form-horizontal") do |f|
+  .controls
+    .control-label Name
+    .control
+      = f.text_field :name
+
+  .controls
+    .control-label Slug
+    .control
+      = f.text_field :slug
+  .form-actions
+    = f.submit "Submit", :class => "btn"

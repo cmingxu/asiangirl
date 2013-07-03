@@ -1,13 +1,19 @@
 Boilerplate::Application.routes.draw do
 
+  resources :galleries
+
+
   namespace :admin do
     resources :users
     resources :pages
     resources :resources
     resources :categories
+    resources :galleries do
+      resources :resources
+    end
   end
 
-  devise_for :users, :controllers => { :sessions => "sessions", :passwords => "passwords" }
+  devise_for :users, :controllers => { :sessions => "sessions", :passwords => "passwords", :registrations => "registrations"}
 
 
   resources :foos
