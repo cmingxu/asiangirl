@@ -2,22 +2,22 @@ set :stages, %w(production staging qa)
 set :default_stage, ENV['env'] || "production"
 require 'capistrano/ext/multistage'
 
-set :application, ""
-set :repository,  ""
+set :application, "asiangirl"
+set :repository,  "git@github.com:cmingxu/asiangirl.git"
 
 set :scm, :git 
 
-ssh_options[:keys] = ["#{ENV['HOME']}/.ssh/public_key.pem"]
+ssh_options[:keys] = ["#{ENV['HOME']}/.ssh/new_key_pair.pem"]
 set :use_sudo, false
 set :user, "ubuntu"
-set :deploy_to, ""
+set :deploy_to, "/home/ubuntu/asiangirl"
 
 
-set :rvm_ruby_string, "1.9.3@global"
+set :rvm_ruby_string, "1.9.3"
 set :rvm_autolibs_flag, "read-only"        # more info: rvm help autolibs
-before 'deploy:setup', 'rvm:install_rvm'   # install RVM
-before 'deploy:setup', 'rvm:install_ruby'  # install Ruby and create gemset, OR:
-before 'deploy:setup', 'rvm:create_gemset' # only create gemset
+#before 'deploy:setup', 'rvm:install_rvm'   # install RVM
+#before 'deploy:setup', 'rvm:install_ruby'  # install Ruby and create gemset, OR:
+#before 'deploy:setup', 'rvm:create_gemset' # only create gemset
 require "rvm/capistrano"
 
 
