@@ -1,3 +1,4 @@
+require 'rails_kindeditor'
 RailsKindeditor.setup do |config|
 
   # Specify the subfolders in public directory.
