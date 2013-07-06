@@ -24,8 +24,8 @@
 %h2.category Images We Have - All For YOU ( 121, 000+ )
 .row#all_galleries
   .span12
-    - Gallery.limit(20).each do |g| 
-      = link_to(image_tag(s3_image_path(g.cover_url)), gallery_path(g), :gid => g.id)
+    .galleries_container
+      = render :partial => "galleries", :locals => { :galleries => @galleries }
 
     %br
     #loading_icon.hide= image_tag("round-loading-icon.gif", :width => 60, :height => 60)

@@ -16,3 +16,17 @@
 //= require_self
 //
 
+
+$(document).ready(function () {
+  $("#more_galleries_btn").click(function (argument) {
+    loading_indicator = $("#loading_icon");
+    last_gallery = $(".galleries_container a:last").attr('gid');
+    loading_indicator.show();
+    $.ajax({ 
+      url: "/load_more", data: {last: last_gallery}, success: function (response) {
+        $(".galleries_container").append(response);
+        loading_indicator.hide();
+      }
+    });
+  });
+});

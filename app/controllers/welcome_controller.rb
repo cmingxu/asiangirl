@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   def index
+    @galleries = Gallery.limit 20
   end
 
   def dashboard
@@ -10,5 +11,10 @@ class WelcomeController < ApplicationController
   end
 
   def team
+  end
+
+  def load_more
+    @galleries = Gallery.offset( params[:last]).limit(20)
+    render :partial => "galleries", :layout => false, :locals => {:galleries => @galleries }
   end
 end

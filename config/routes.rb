@@ -27,6 +27,7 @@ Boilerplate::Application.routes.draw do
   match "about" => "welcome#about"
   match "team" => "welcome#team"
   match "dashboard" => "welcome#dashboard"
+  match "load_more" => "welcome#load_more"
 
 
   # The priority is based upon order of creation:
