@@ -14,6 +14,8 @@ class GalleriesController < ApplicationController
   # GET /galleries/1.json
   def show
     @gallery = Gallery.find(params[:id])
+    @prev_gallery = Gallery.find_by_id(params[:id].to_i - 1) || @gallery
+    @next_gallery = Gallery.find_by_id(params[:id].succ) || @gallery
 
     respond_to do |format|
       format.html # show.html.erb

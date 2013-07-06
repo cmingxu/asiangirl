@@ -1,2 +1,5 @@
+%a{:name => "top"}
 - @gallery.resources.each do |r|
   = image_tag r.storage.url
+
+= render :partial => "quick_nav", :locals => {:prev_gallery => @prev_gallery, :next_gallery => @next_gallery}

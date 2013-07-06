@@ -8,6 +8,14 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :roles, :login
   # attr_accessible :title, :body
+  
+  before_create do |u|
+    u.roles = "normal"
+  end 
+
+  def normal?
+    !admin?
+  end
 
   def admin?
     self.roles.split(" ").include? "admin" 
