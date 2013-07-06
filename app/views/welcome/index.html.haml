@@ -1,24 +1,33 @@
 .hero-unit
 
-  %h1 Hello World
-  %p This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
+  %h1 Hi, Dude
+  %p We have over 100,000 hot pics here and more videos coming soon, delight yourself :)
 
 %h2.category Top Galleries
-.row-fluid
-  - Category.top.galleries.each do |g| 
-    = link_to(image_tag(s3_image_path(g.cover_url)), gallery_path(g))
+.row
+  .span12
+    - Category.top.galleries.each do |g| 
+      = link_to(image_tag(s3_image_path(g.cover_url)), gallery_path(g))
 
 %h2.category Stuff Picks
-.row-fluid
-  - Category.stuff_picks.galleries.each do |g| 
-    = link_to(image_tag(s3_image_path(g.cover_url)), gallery_path(g))
+.row
+  .span12
+    - Category.stuff_picks.galleries.each do |g| 
+      = link_to(image_tag(s3_image_path(g.cover_url)), gallery_path(g))
 
 %h2.category Guess You Like
-.row-fluid
-  - Category.recommend.galleries.each do |g| 
-    = link_to(image_tag(s3_image_path(g.cover_url)), gallery_path(g))
+.row
+  .span12
+    - Category.recommend.galleries.each do |g| 
+      = link_to(image_tag(s3_image_path(g.cover_url)), gallery_path(g))
 
 %h2.category Images We Have - All For YOU ( 121, 000+ )
-.row-fluid
-  - Gallery.all.each do |g| 
-    = link_to(image_tag(s3_image_path(g.cover_url)), gallery_path(g))
+.row#all_galleries
+  .span12
+    - Gallery.limit(20).each do |g| 
+      = link_to(image_tag(s3_image_path(g.cover_url)), gallery_path(g), :gid => g.id)
+
+    %br
+    #loading_icon.hide= image_tag("round-loading-icon.gif", :width => 60, :height => 60)
+    %a#more_galleries_btn.btn.btn-large I want More ...
+

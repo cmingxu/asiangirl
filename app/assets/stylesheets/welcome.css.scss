@@ -1,3 +1,25 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#loading_icon{
+  margin: 0px auto;
+  position: relative;
+  left: 45%;
+}
+
+.brand{
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1.5em;
+}
+
+
+img{
+  @extend img-polaroid;
+  margin: 5px 7px;
+}
+
+#more_galleries_btn{
+  width: 100%
+}

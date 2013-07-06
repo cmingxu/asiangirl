@@ -9,12 +9,12 @@
   %body
     .navbar.navbar-inverse.navbar-fixed-top
       .navbar-inner
-        .container-fluid
+        .container
           %button.btn.btn-navbar{ "data-toggle"=>"collapse", "data-target"=>".nav-collapse" }
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand Project Name
+          = link_to "Hottest Asian Girl", "/", :class => "brand"
           .nav-collapse.collapse
             %ul.nav
               %li.active 
@@ -34,7 +34,7 @@
 
 
 
-    .container-fluid.body
+    .container.body
       = yield
 
 
