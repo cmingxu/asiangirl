@@ -1,2 +1,4 @@
 - @galleries.each do |g| 
   = link_to(image_tag(s3_image_path(g.cover_url)), gallery_path(g), :gid => g.id)
+
+= paginate @galleries, :params => {:controller => :galleries }

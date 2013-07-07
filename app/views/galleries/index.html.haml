@@ -1,23 +1,7 @@
-%h1 Listing galleries
+%h1 Hot Asian Legs
 
-%table
-  %tr
-    %th Name
-    %th Category
-    %th Slug
-    %th
-    %th
-    %th
+- @galleries.each do |gallery|
+  = link_to image_tag(gallery.cover_url, :alt => gallery.name), gallery
 
-  - @galleries.each do |gallery|
-    %tr
-      %td= gallery.name
-      %td= gallery.category_id
-      %td= gallery.slug
-      %td= link_to 'Show', gallery
-      %td= link_to 'Edit', edit_gallery_path(gallery)
-      %td= link_to 'Destroy', gallery, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
-
-= link_to 'New Gallery', new_gallery_path
+= paginate @galleries

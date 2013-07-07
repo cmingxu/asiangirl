@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    @galleries = Gallery.limit 20
+    @galleries = Gallery.page(params[:page]).per(20)
   end
 
   def dashboard
