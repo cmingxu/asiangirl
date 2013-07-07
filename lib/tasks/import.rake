@@ -10,18 +10,18 @@ task :import  => :environment do
     threads = []
     Dir.glob(dir + "/*").each do |file|
       #threads << Thread.new do
-        c.resources.create(:name => File.basename(file), :storage => File.open(file))
-        puts file
+      c.resources.create(:name => File.basename(file), :storage => File.open(file))
+      puts file
       #end
     end
 
 
     #loop do
-      #sleep 0.1
-      #threads.map(&:join)
-      #if Thread.list.count == tcount 
-        #break
-      #end
+    #sleep 0.1
+    #threads.map(&:join)
+    #if Thread.list.count == tcount 
+    #break
+    #end
     #end
 
 

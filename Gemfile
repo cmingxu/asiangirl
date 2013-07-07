@@ -41,3 +41,5 @@ gem 'disqus'
 gem "fog", "~> 1.3.1"
 gem 'rmagick'
 gem 'easy_translate'
+gem 'httparty'
+gem 'twitter'
