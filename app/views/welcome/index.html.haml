@@ -10,19 +10,19 @@
 .row
   .span12
     - Category.top.galleries.each do |g| 
-      = link_to(image_tag(s3_image_path(g.cover_url)), gallery_path(g))
+      = link_to(image_tag(s3_image_path(g.cover_url), :alt => g.alt), g)
 
 %h2.category Stuff Picks
 .row
   .span12
     - Category.stuff_picks.galleries.each do |g| 
-      = link_to(image_tag(s3_image_path(g.cover_url)), gallery_path(g))
+      = link_to(image_tag(s3_image_path(g.cover_url), :alt => g.alt), gallery_path(g))
 
 %h2.category Guess You Like
 .row
   .span12
     - Category.recommend.galleries.each do |g| 
-      = link_to(image_tag(s3_image_path(g.cover_url)), gallery_path(g))
+      = link_to(image_tag(s3_image_path(g.cover_url), :alt => g.alt), gallery_path(g))
 
 %h2.category Images We Have - All For YOU ( 121, 000+ )
 .row#all_galleries
